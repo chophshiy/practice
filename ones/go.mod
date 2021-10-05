@@ -1,3 +1,3 @@
-module github.com/chophshiy/ones
+module github.com/chophshiy/practice/tree/main/ones
 
 go 1.17

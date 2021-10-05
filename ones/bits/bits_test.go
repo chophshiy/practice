@@ -10,12 +10,9 @@ func TestBitCount(t *testing.T) {
 		give   uint
 		expect int
 	}{
-		{4294967296, 1}, // These numbers should be just outside of the uint32 range.
-		{4294967297, 2}, // Conversion of case two should be: 1 00000000 00000000 00000000 00000001
-		{4294967298, 2},
-		{4294967299, 3},
-		{4294967300, 2},
-		{4294967301, 3},
+		{1, 1},
+		{3, 2},
+		{10, 2},
 	}
 
 	for i, tt := range cases {
