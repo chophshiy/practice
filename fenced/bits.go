@@ -1,15 +1,33 @@
 package bits
 
+const mask uint = 1 << 63
+
 func BitCount(n uint) int {
-	var count int
+	var maxCount, cur int
+	var leadingOne, trailingOne bool
 	b := n
 
 	for i := 0; i < 64; i++ {
-		// This fails all test cases by -1 if either the mask is 8 bits, or the mask below is expressed in hex.  I'm not understanding why.
-		if b<<i&0b1000000000000000000000000000000000000000000000000000000000000000 == 0b1000000000000000000000000000000000000000000000000000000000000000 {
-			count += 1
+		if b&mask == mask {
+			if !leadingOne {
+				leadingOne = true
+			} else {
+				trailingOne = true
+			}
+			if leadingOne && trailingOne {
+				if cur > maxCount {
+					maxCount = cur
+					cur = 0
+					trailingOne = false
+				}
+			}
+		} else {
+			if leadingOne {
+				cur += 1
+			}
 		}
+		b = b << 1
 	}
 
-	return count
+	return maxCount
 }

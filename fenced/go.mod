@@ -1,3 +1,3 @@
-module github.com/chophshiy/fenced
+module fenced
 
 go 1.17

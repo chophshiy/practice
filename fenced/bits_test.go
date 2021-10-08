@@ -10,10 +10,10 @@ func TestBitCount(t *testing.T) {
 		give   uint
 		expect int
 	}{
-		{0001000, 0},
-		{11, 0},
-		{1001, 2},
-		{110001001, 3},
+		{0b0001000, 0},
+		{0b11, 0},
+		{0b1001, 2},
+		{0b110001001, 3},
 	}
 
 	for i, tt := range cases {
