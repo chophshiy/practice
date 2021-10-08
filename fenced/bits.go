@@ -1,14 +1,13 @@
 package bits
 
-const mask uint = 1
+const mask uint64 = 1
 
-func MaxFence(n uint) int {
+func MaxFence(n uint64) int {
 	var maxCount, cur int
 	var leadingOne, trailingOne bool
-	b := n
 
-	for i := 0; i < 64; i++ {
-		if b&mask == mask {
+	for n != 0 {
+		if n&mask == mask {
 			if !leadingOne {
 				leadingOne = true
 			} else {
@@ -26,7 +25,7 @@ func MaxFence(n uint) int {
 				cur += 1
 			}
 		}
-		b = b >> 1
+		n = n >> 1
 	}
 
 	return maxCount

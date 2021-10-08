@@ -7,7 +7,7 @@ import (
 
 func TestMaxFence(t *testing.T) {
 	cases := []struct {
-		give   uint
+		give   uint64
 		expect int
 	}{
 		{0b0001000, 0},
