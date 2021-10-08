@@ -2,7 +2,7 @@ package bits
 
 const mask uint = 1
 
-func BitCount(n uint) int {
+func MaxFence(n uint) int {
 	var maxCount, cur int
 	var leadingOne, trailingOne bool
 	b := n
