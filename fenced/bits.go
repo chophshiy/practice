@@ -1,6 +1,6 @@
 package bits
 
-const mask uint = 1 << 63
+const mask uint = 1
 
 func BitCount(n uint) int {
 	var maxCount, cur int
@@ -26,7 +26,7 @@ func BitCount(n uint) int {
 				cur += 1
 			}
 		}
-		b = b << 1
+		b = b >> 1
 	}
 
 	return maxCount
