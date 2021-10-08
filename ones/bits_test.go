@@ -8,7 +8,7 @@ import (
 func TestBitCount(t *testing.T) {
 	cases := []struct {
 		give   uint
-		expect int
+		expect uint
 	}{
 		{1, 1},
 		{3, 2},
