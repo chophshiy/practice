@@ -1,27 +1,13 @@
 package sets
 
 func IsFlawless(nums []int) bool {
-	var compare []int
-	var total int
 	var result bool = true
+	var x int
 
-	for place, _ := range compare {
-		compare[place] = place + 1
+	for i, e := range nums {
+		x ^= e ^ (i + 1)
 	}
-
-	for outer, _ := range nums {
-		for inner, _ := range compare {
-			if compare[inner]^nums[outer] == 0 {
-				compare[inner] = 0
-			}
-		}
-	}
-
-	for place, _ := range compare {
-		total += compare[place]
-	}
-
-	if total != 0 {
+	if x != 0 {
 		result = false
 	}
 
